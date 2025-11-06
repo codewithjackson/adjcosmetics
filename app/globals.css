@@ -1,26 +1,240 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+/* 🎨 ADJ Cosmetics – Premium Elegance Theme */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --roseGold: #b76e79;
+  --deepPlum: #3a2030;
+  --offWhite: #f9f6f5;
+  --champagne: #ecd8ca;
+  --charcoal: #2b2b2b;
+  --softGray: #f2f2f2;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* 🌐 Global Layout */
+html,
+body,
+#__next {
+  height: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(180deg, var(--offWhite) 0%, #ffffff 100%);
+  color: var(--charcoal);
+  font-family: "Poppins", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  transition: background 0.4s ease;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* 🧱 Container */
+.container-max {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+/* ✨ Focus */
+:focus {
+  outline: 2px solid rgba(183, 110, 121, 0.35);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+/* 🌸 Frosted Glass */
+.glass {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 1.25rem;
+  transition: all 0.35s ease;
+}
+
+/* 💎 Hover Glow */
+.hover-glow {
+  transition: all 0.3s ease;
+}
+.hover-glow:hover {
+  box-shadow: 0 0 22px rgba(183, 110, 121, 0.4);
+  transform: translateY(-3px) scale(1.03);
+}
+
+/* 🪶 Fade Up Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out both;
+}
+
+/* 🧭 Header / Navbar */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s ease;
+}
+header.scrolled {
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* 🩰 Links */
+a {
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+a:hover {
+  color: var(--roseGold);
+  transform: translateY(-1px);
+}
+
+/* 💬 Inputs */
+input,
+textarea {
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 10px;
+  border: 1px solid rgba(183, 110, 121, 0.25);
+  padding: 0.6rem 1rem;
+  color: var(--charcoal);
+  transition: all 0.3s ease;
+}
+input:focus,
+textarea:focus {
+  border-color: var(--roseGold);
+  box-shadow: 0 0 8px rgba(183, 110, 121, 0.25);
+}
+input::placeholder,
+textarea::placeholder {
+  color: #aaa;
+}
+input:focus::placeholder,
+textarea:focus::placeholder {
+  color: #ccc;
+}
+
+/* 🌈 Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--roseGold), var(--deepPlum));
+  border-radius: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--offWhite);
+}
+
+/* Hide Scrollbar for Carousels */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* 🪄 Fade Down Animation */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fadeInDown {
+  animation: fadeInDown 0.3s ease-out forwards;
+}
+
+/* 📱 Bottom Navigation — Premium Floating Temu-Style */
+.bottom-nav {
+  position: fixed;
+  bottom: env(safe-area-inset-bottom, 5px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(100%, 480px);
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 20px;
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.06);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.6rem 0.4rem;
+  z-index: 60;
+  backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+}
+
+.bottom-nav button {
+  background: transparent;
+  border: none;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.72rem;
+  color: #777;
+  transition: all 0.25s ease;
+}
+
+.bottom-nav button svg {
+  width: 22px;
+  height: 22px;
+  margin-bottom: 2px;
+  transition: all 0.25s ease;
+}
+
+.bottom-nav button.active {
+  color: var(--roseGold);
+  font-weight: 500;
+  transform: translateY(-3px);
+}
+
+.bottom-nav button.active svg {
+  transform: scale(1.15);
+  color: var(--roseGold);
+}
+
+/* ✨ Premium Floating Nav Enhancements */
+button:active {
+  transform: scale(0.95);
+}
+
+nav.fixed {
+  bottom: env(safe-area-inset-bottom, 5px);
+}
+
+.bottom-nav button:hover svg {
+  filter: drop-shadow(0 0 4px rgba(183, 110, 121, 0.5));
+}
+
+/* 💻 Desktop Hide */
+@media (min-width: 768px) {
+  .bottom-nav {
+    display: none;
+  }
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .container-max {
+    padding-inline: 0.8rem;
+  }
 }
