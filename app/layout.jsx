@@ -19,20 +19,19 @@ export default function RootLayout({ children }) {
         <meta name="theme-color" content="#b76e79" />
       </head>
 
-      <body className="min-h-screen flex flex-col bg-[var(--offWhite)] text-[var(--charcoal)] font-sans relative antialiased selection:bg-[var(--roseGold)]/20">
+      <body className="min-h-screen flex flex-col bg-[var(--offWhite)] text-[var(--charcoal)] font-sans relative antialiased selection:bg-[var(--roseGold)]/20 overflow-x-hidden">
         {/* === Top Header === */}
         <TopHeader />
 
         {/* === Page Content === */}
-        <main className="flex-1 w-full max-w-[980px] mx-auto px-3 pt-[70px] pb-[120px] sm:px-4 fade-in-up">
+        <main className="flex-1 w-full max-w-[980px] mx-auto px-3 pt-[70px] pb-[100px] sm:px-4 fade-in-up">
           {children}
         </main>
 
         {/* === Bottom Navigation === */}
-        <BottomNav />
-
-        {/* === Safe Space for Mobile Floating Nav === */}
-        <div className="h-[90px] sm:hidden" />
+        <div className="fixed bottom-0 left-0 w-full z-50 sm:hidden">
+          <BottomNav />
+        </div>
       </body>
     </html>
   );
