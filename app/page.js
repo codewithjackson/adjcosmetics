@@ -1,21 +1,13 @@
-// app/layout.jsx
-import "./globals.css";
-import BottomNav from "./components/BottomNav";
-
-export const metadata = {
-  title: "Your App",
-  description: "Bestie app layout",
-};
-
-export default function RootLayout({ children }) {
+// app/page.js
+export default function HomePage() {
   return (
-    <html lang="en">
-      <body className="relative min-h-screen bg-[var(--offWhite)] text-[var(--charcoal)]">
-        <div className="pb-16"> {/* gives space so content isn't hidden behind bottom nav */}
-          {children}
-        </div>
-        <BottomNav />
-      </body>
-    </html>
+    <div className="pb-16">
+      <h1 className="text-center text-2xl font-semibold mt-10">
+        Welcome to ADJ Cosmetics
+      </h1>
+      <p className="text-center mt-3 text-gray-600">
+        Explore our premium selection of imported beauty and emporium products.
+      </p>
+    </div>
   );
 }

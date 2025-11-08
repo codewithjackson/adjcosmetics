@@ -1,3 +1,4 @@
+// app/layout.jsx
 import "./globals.css";
 import TopHeader from "./components/TopHeader";
 import BottomNav from "./components/BottomNav";
@@ -19,12 +20,12 @@ export default function RootLayout({ children }) {
         <meta name="theme-color" content="#b76e79" />
       </head>
 
-      <body className="min-h-screen flex flex-col bg-[var(--offWhite)] text-[var(--charcoal)] font-sans relative antialiased selection:bg-[var(--roseGold)]/20 overflow-x-hidden">
-        {/* === Top Header === */}
+      <body className="relative min-h-screen bg-[var(--offWhite)] text-[var(--charcoal)] font-sans antialiased selection:bg-[var(--roseGold)]/20 overflow-x-hidden">
+        {/* === Top Header (Navbar) === */}
         <TopHeader />
 
         {/* === Page Content === */}
-        <main className="flex-1 w-full max-w-[980px] mx-auto px-3 pt-[70px] pb-[100px] sm:px-4 fade-in-up">
+        <main className="pt-[110px] pb-[90px] max-w-[980px] mx-auto px-4 sm:px-5">
           {children}
         </main>
 
